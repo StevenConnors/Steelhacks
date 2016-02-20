@@ -1,21 +1,27 @@
 {
-  "name": "aframe-boilerplate",
-  "description": "Boilerplate for creating WebVR scenes using A-Frame",
-  "version": "0.0.0",
-  "license": "MIT",
-  "scripts": {
-    "start": "budo --live --verbose --port 3000 --open",
-    "deploy": "ghpages",
-    "ghpages": "ghpages"
-  },
-  "devDependencies": {
-    "budo": "^7.0.0",
-    "ghpages": "0.0.3"
-  },
-  "keywords": [
-    "aframe",
-    "aframe-example",
-    "aframe-scene",
-    "aframe-boilerplate"
-  ]
+    "name": "snowman",
+    "description": "Snowman test project",
+    "version": "0.0.1",
+    "main": "server.js",
+    "author": {
+        "name": "Olof Astrand",
+        "email": "olof.astrand@gmail.com"
+    },
+    "keywords": [],
+    "licenses": {
+        "type": "none"
+    },
+    "dependencies": {
+      "body-parser": "*",
+      "morgan" : "*",
+      "mongodb":"*",
+      "express": "*"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/Ebiroll/snowman.git"
+    },
+    "bugs": {
+        "url": "http://github.com/Ebiroll/snowman/issues"
+    }
 }
