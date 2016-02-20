@@ -8,35 +8,38 @@
     <script src="js/aframe-text-component.min.js"></script>
   </head>
   <body>
+    <a-assets>
+      <img id="my-texture" src="monu9.png">
+    </a-assets>
+
     <a-scene>
-      <a-camera cursor-visible="true" position="4 2 10"></a-camera>
-      <a-sky color="#ECECEC"></a-sky>
-      <a-plane rotation="-90 0 0" width="10" height="10" color="#7BC8A4"></a-plane>
+      <a-camera position="0 2.5 10" cursor-visible="true" cursor-scale="2" cursor-color="#4CC3D9" cursor-offset="2" cursor-maxdistance="10" cursor-opacity="0.5"></a-camera>
+     <!--  <a-plane rotation="-90 0 0" width="10" height="10" color="#7BC8A4"></a-plane> -->
       
-<!--       <a-model rotation="0 -90 0"  scale="0.4 0.4 0.4" position="0 0 0" src="/assets/monu9-alyssa.dae"></a-model> -->      
+      <!-- tree model         <a-model scale="2 2 2" position="3 0 3.5" src="https://aframe.io/aframe/examples/_models/tree1/tree1.dae"></a-model> -->  
 
+      <!-- <a-model rotation="0 -90 0"  scale="2 2 2" position="3 0 3.5" src="/assets/snowman/snowman.dae"></a-model> -->
 
-
+      <a-model rotation="0 -90 0"  scale="0.1 0.1 0.1" position="0 1.8 4" src="/assets/monu9-alyssa.dae" material="#my-texture"></a-model>
+      
       <!-- red sphere -->
-      <a-sphere position="0 1.25 -1" radius="3" color="red" ></a-sphere>
+     <!--  <a-sphere position="0 1.8 4" radius="3" color="red" ></a-sphere> -->
       
-      <a-entity position="-5 0 0">
-
-        <a-cylinder position="0 2 0" radius="2" height="2" color="#4CC3D9" open-ended="true" side="double">
-          <a-animation attribute="scale" from="1 1.25 1" to="1 0 1" dur="2000" fill="forwards"></a-animation>
-        </a-cylinder>
-
-        <a-cylinder position="0 -2 0" radius="2" height="2" color="#7BC8A4" open-ended="true" side="double">
-          <a-animation attribute="scale" from="1 1.25 1" to="1 0 1" dur="2000" fill="forwards"></a-animation>
-        </a-cylinder>
-
-      </a-entity>
-
-
-
+      <!-- rotating cube
+      <a-cube position="-4 3 1" rotation="0 360 0" width="1" height="1" depth="1" src="assets/layeredstucco.jpg"> 
+        <a-animation attribute="rotation" from="0 0 0" to="0 90 0" repeat="indefinite" easing="linear"></a-animation>
+      </a-cube>  -->
+      
+      <!-- wine cube
+      <a-cube position="-2 1 3.5" rotation="0 30 0" width="2" depth="2" height="2" opacity="1" src="assets/wine.jpg"></a-cube>
+     -->
 
       <!-- text-component -->
-      <a-entity text="text: Hello, Snowman!" position="-3 3 4" material="color: blue"></a-entity>    
+<!--       <a-entity text="text: Hello, Snowman!" position="0 1.8 4" material="color: blue"></a-entity>    
+ -->
+      <a-sky color="#ECECEC"></a-sky>
+
+
     </a-scene>
   </body>
 </html>
