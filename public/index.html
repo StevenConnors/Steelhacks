@@ -97,7 +97,7 @@
           <a-animation attribute="rotation" begin="L-shape-rotate1" to="0 0 0" dur="2000"></a-animation>
           <a-animation attribute="rotation" begin="L-shape-rotate2" to="0 90 0" dur="2000"></a-animation>
           <a-animation attribute="rotation" begin="L-shape-rotate3" to="0 180 0" dur="2000"></a-animation>
-          <a-animation attribute="rotation" begin="L-shape-rotate4" to="0 -90 0" dur="2000"></a-animation>
+          <a-animation attribute="rotation" begin="L-shape-rotate4" from="0 -180 0" to="0 -90 0" dur="2000"></a-animation>
         </a-model>
 
         <a-model id="Z-shape"
@@ -107,8 +107,8 @@
                  src="/assets/monu9-Z.dae"
                  material="src:#Zshape-texture"
                  visible="true">
-          <a-animation attribute="scale" begin="Z-shape-scale" to="1 11.3 1" dur="3000"></a-animation>
-          <a-animation attribute="position" begin="Z-shape-pos" to="0 -12 0" dur="3000"></a-animation>
+          <a-animation attribute="scale" begin="Z-shape-scale" to="1 11.3 1" dur="6000"></a-animation>
+          <a-animation attribute="position" begin="Z-shape-pos" to="0 -12 0" dur="6000"></a-animation>
         </a-model>
 
         <a-model id="button"
@@ -118,17 +118,18 @@
                  src="/assets/monu9-button.dae"
                  material="src:#button-texture"
                  visible="true">
-          <a-animation attribute="position" begin="button-scale" to="0 19 0" dur="3000"></a-animation>
+          <a-animation attribute="position" begin="button-scale" to="0 19 0" dur="6000"></a-animation>
         </a-model>
 
         <a-cube id="pcover" 
-                position="-15 22 23" 
+                position="-15 0 23" 
                 transparent="true"
                 opacity="0"
                 rotation="0 -90 0" 
                 width="6" 
                 height="3" 
-                depth="6">    
+                depth="6">   
+            <a-animation attribute="position" begin="pcover-scale" to="-15 21 23" dur="6000"></a-animation> 
         </a-cube>
 
         <a-cube id="bluecover"
@@ -195,6 +196,9 @@
           });
       document.querySelector('#FButtonCover').addEventListener('click', function () {
         document.querySelector('#button').emit('button-scale');
+          });
+      document.querySelector('#FButtonCover').addEventListener('click', function () {
+        document.querySelector('#pcover').emit('pcover-scale');
           });
 
       document.querySelector('#pcover').addEventListener('click', function() {
