@@ -16,9 +16,9 @@
     </a-assets>
 
     <a-scene>
-      <a-entity id="camera" position="-1 10 7">
+      <a-entity id="camera" position="-1 4 7">
         <a-entity camera gamepad-controls look-controls wasd-controls>
-        <a-entity cursor="fuse: true; timeout: 100; maxDistance: 10;" 
+        <a-entity cursor="fuse: true; timeout: 150; maxDistance: 2;" 
                   geometry="primitive: ring; radiusInner: 0.02; radiusOuter: 0.03" 
                   material="color: #4CC3D9" 
                   position="0 0 -2"></a-entity>
@@ -38,13 +38,6 @@
         <a-animation attribute="scale" begin="scale-pillar" to="0.1 0.35 0.1" dur="3000"></a-animation>
       </a-model>
 
-      <a-model id="pillar-scaled" 
-                rotation="0 -90 0" 
-                scale="0.1 0.35 0.1" 
-                position="0 1.8 4" 
-                src="/assets/monu9-pillar.dae" 
-                material="src: #pillar-texture" 
-                visible="false"></a-model>
       <a-model id="L-shape"  
                rotation="0 -90 0" 
                scale="0.1 0.1 0.1" 
@@ -52,34 +45,17 @@
                src="/assets/monu9-L.dae" 
                material="src: #Lshape-texture"
                visible="true">
-      </a-model>
-      <a-model id="L-shape-up"  
-               rotation="0 90 0" 
-               scale="0.1 0.1 0.1" 
-               position="0 5.5 4" 
-               src="/assets/monu9-L.dae" 
-               material="src: #Lshape-texture"
-               visible="false">
+        <a-animation attribute="position" begin="L-shape-scale" to="0 5.55 4" dur="3000"></a-animation>
       </a-model>
 
       <a-cube id="pcover" 
-              position="0 3 4" 
-              transparent="true" 
+              position="-1.5 4.05 6.3" 
+              transparency = "true"
               opacity="0"
               rotation="0 -90 0" 
-              width="0.7" 
-              height="2" 
-              depth="1">
-        <!-- <a-mouseenter target="#pillar" visible="false"></a-mouseenter>
-        <a-mouseenter target="#pillar-scaled" visible="true"></a-mouseenter>
-        <a-mouseenter target="#L-shape" visible="false"></a-mouseenter>
-        <a-mouseenter target="#L-shape-up" visible="true"></a-mouseenter>
-
-        <a-mouseleave target="#pillar" visible="true"></a-mouseleave>
-        <a-mouseleave target="#pillar-scaled" visible="false"></a-mouseleave>
-        <a-mouseleave target="#L-shape" visible="true"></a-mouseleave>
-        <a-mouseleave target="#L-shape-up" visible="false"></a-mouseleave>
- -->
+              width="0.5" 
+              height="0.15" 
+              depth="0.5">
       </a-cube>
 
   
@@ -90,6 +66,9 @@
     <script language="javascript">
       document.querySelector('#pcover').addEventListener('click', function () {
         document.querySelector('#pillar').emit('scale-pillar');
+          })
+      document.querySelector('#pcover').addEventListener('click', function () {
+        document.querySelector('#L-shape').emit('L-shape-scale');
           });
     </script> 
 
