@@ -26,18 +26,19 @@
   </head>
   <body>
     <a-assets>
-      <img id="my-texture" src="/assets/monu9-nopillar.png">
+      <img id="my-texture" src="/assets/monu9-nopillarnoz.png">
       <img id="pillar-texture" src="/assets/monu9-pillar.png">
       <img id="Lshape-texture" src="/assets/monu9-L.png">
-
+      <img id="Zshape-texture" src="/assets/monu9-Z.png">
+      <img id="button-texture" src="/assets/monu9-button.png">
     </a-assets>
 
     <a-scene terrain="#terrain [geometry], #scene" stats="false">
 
 
-      <a-entity id="player" position="-1 60 7">
+      <a-entity id="player" position="-50 30 -40">
         <a-entity camera 
-                  fov="90"
+                  fov="-0"
                   look-controls 
                   wasd-controls
                   keyboard-controls="acceleration: 200"
@@ -66,7 +67,7 @@
         <a-model rotation="0 -90 0"  
                  scale="1 1 1" 
                  position="0 1.8 4" 
-                 src="/assets/monu9-nopillar.dae"
+                 src="/assets/monu9-nopillarnoz.dae"
                  material="#my-texture"
                  id="model">
         </a-model>
@@ -99,12 +100,40 @@
         <a-animation attribute="position" begin="L-shape-scale" to="0 39 4" dur="3000"></a-animation>
       </a-model>
 
+      <a-model id="Z-shape"
+               rotation="0 -90 0"
+               scale= "1 1 1"
+               position="0 1.8 4"
+               src="/assets/monu9-Z.dae"
+               material="src:#Zshape-texture"
+               visible="true">
+      <a-animation attribute="scale" begin="Z-shape-scale" to="1 7.5 1" dur="3000"></a-animation>
+      </a-model>
+
+      <a-model id="button"
+               rotation="0 -90 0"
+               scale= "1 1 1"
+               position="0 1.8 4"
+               src="/assets/monu9-button.dae"
+               material="src:#button-texture"
+               visible="true">
+      <a-animation attribute="position" begin="button-scale" to="0 21.4 4" dur="3000"></a-animation>
+      </a-model>
 
       <a-cube id="pcover" 
               position="-15 25 27" 
-              color="red"
-              transparent="false"
-              opacity="1"
+              transparent="true"
+              opacity="0"
+              rotation="0 -90 0" 
+              width="6" 
+              height="3" 
+              depth="6">
+        
+      </a-cube>
+      <a-cube id="FButtonCover" 
+              position="-15 10 -35" 
+              transparent="true"
+              opacity="0"
               rotation="0 -90 0" 
               width="6" 
               height="3" 
@@ -128,6 +157,12 @@
           })
       document.querySelector('#pcover').addEventListener('click', function () {
         document.querySelector('#L-shape').emit('L-shape-scale');
+          });
+      document.querySelector('#FButtonCover').addEventListener('click', function () {
+        document.querySelector('#Z-shape').emit('Z-shape-scale');
+          });
+      document.querySelector('#FButtonCover').addEventListener('click', function () {
+        document.querySelector('#button').emit('button-scale');
           });
     </script> 
 
