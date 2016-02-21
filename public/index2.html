@@ -62,8 +62,8 @@
 
       <a-entity id="scene">
         <a-model rotation="0 -90 0"  
-                 scale="1 1 1" 
-                 position="0 1.8 0" 
+                 scale="0.1 0.1 0.1" 
+                 position="0 1.8 4" 
                  src="/assets/monu9-alyssa.dae"
                  material="#my-texture"
                  id="model">
@@ -104,9 +104,36 @@
 
 
 
+ 
+<!-- 
+      <a-entity id="player" position="-1 3 7">
+        <a-entity camera 
+                  fov="90"
+                  look-controls 
+                  wasd-controls
+                  keyboard-controls="acceleration: 200"
+                  jump-ability="enableDoubleJump: true;
+                                soundJump: #sound-jump;
+                                soundLand: #sound-land;">
+          <a-entity id="sound-jump"
+                    sound="src: https://sandbox.donmccurdy.com/assets/sound/grunt-male.mp3;
+                           on: fire;">
+          </a-entity>
+          <a-entity id="sound-land"
+                    sound="src: https://sandbox.donmccurdy.com/assets/sound/footfall.mp3;
+                           on: fire;
+                           volume: 2;">
+          </a-entity>
 
+          <a-entity cursor="fuse: true; timeout: 100; maxDistance: 10;" 
+                  geometry="primitive:ring; radiusInner:0.02; radiusOuter:0.03" 
+                  material="color: #4CC3D9" 
+                  position="0 0 -2">
+          </a-entity>
+        </a-entity>
+      </a-entity>
 
-
+ -->
 
 
 
