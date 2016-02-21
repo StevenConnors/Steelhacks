@@ -6,9 +6,12 @@
     <meta name="description" content="Experiments with A-Frame VR">
     <script src="https://aframe.io/releases/latest/aframe.min.js"></script>
     <script src="js/aframe-text-component.min.js"></script>
+
   </head>
   <body>
+
     <a-assets>
+
       <img id="my-texture" src="/assets/monu9-nopillar.png">
       <img id="pillar-texture" src="/assets/monu9-pillar.png">
       <img id="Lshape-texture" src="/assets/monu9-L.png">
@@ -88,10 +91,46 @@
         <a-mouseleave target="#L-shape-up" visible="false"></a-mouseleave>
       </a-cube>
 
-  
+   
       <a-sky color="#ECECEC"></a-sky>
 
+      <a-entity camera
+                position="0 2.5 10" 
+                id="camera"
+                fov="90"
+                look-control="true"
+                cursor-visible="true" 
+                cursor-scale="2" 
+                cursor-color="#4CC3D9" 
+                cursor-offset="2" 
+                cursor-maxdistance="10" 
+                cursor-opacity="0.5">
+      </a-entity>
 
+      <a-entity id="scene">
+        <a-model rotation="0 -90 0"  
+                 scale="0.1 0.1 0.1" 
+                 position="0 1.8 4" 
+                 src="/assets/monu9-alyssa.dae"
+                 material="#my-texture"
+                 id="model">
+        </a-model>
+      </a-entity>
+
+
+      <a-cube id="test"></a-cube>
+
+      <script> 
+        var scene = document.querySelector("#model").addEventListener('mouseenter', function() {
+          alert("ENTER");
+        });
+
+
+        var scene = document.querySelector("#model").addEventListener('mouseleave', function() {
+          alert("LEAVE");
+        });
+
+      </script>
     </a-scene>
     <!-- <script language="javascript">
     //   document.querySelector('#pcover').addEventListener('click', function () {
