@@ -5,6 +5,7 @@
     <title>Steelhacks</title>
     <script src="https://aframe.io/releases/latest/aframe.js"></script>
     <script src="js/bundle.js"></script>
+    <script src="js/aframe-text-component.min.js"></script>
     <style>
       #audio {
         position: absolute;
@@ -70,6 +71,43 @@
       <!-- Scene entity. Everything that is landable must be included within this object -->
       <a-entity id="scene">
 
+       <a-entity 
+            id = "first-hint"
+            class = "hint"
+            text="text: Move Move Using WASD and Jump with Space! Press H to toogle hints" 
+            position="-50 2 -30" 
+            material="color: red"
+            opacity="1"
+            transparent="false">
+            <a-animation attribute="position" begin="hide-hint" to="100 -100 100"></a-animation> 
+            <a-animation attribute="position" begin="show-hint" to="-50 2 -30"></a-animation> 
+            </a-entity>
+
+         <a-entity 
+            id = "second-hint"
+            class = "hint"
+            text="text: Stare at Button and Look Behind You!" 
+            position="-15 8 -45" 
+            material="color: red"
+            opacity="1"
+            transparent="false">
+             <a-animation attribute="position" begin="hide-hint" to="100 -100 100"></a-animation> 
+             <a-animation attribute="position" begin="show-hint" to="-15 8 -45"></a-animation> 
+            </a-entity>
+         
+          <a-entity 
+            id = "third-hint"
+            class = "hint"
+            text="text: Come Here and Look up at the blue handles!" 
+            position="5 25 -20" 
+            rotation="0 180 0"
+            material="color: red"
+            opacity="1"
+            transparent="false">
+            <a-animation attribute="position" begin="hide-hint" to="100 -100 100"></a-animation> 
+            <a-animation attribute="position" begin="show-hint" to="5 25 -20"></a-animation> 
+          </a-entity>
+
         <a-model rotation="0 -90 0"  
                  scale="1 1 1" 
                  position="0 0 0" 
@@ -85,7 +123,7 @@
                 src="/assets/monu9-pillar.dae" 
                 material="src: #pillar-texture" 
                 visible="true">
-          <a-animation attribute="scale" begin="scale-pillar" to="1 3.47 1" dur="3000"></a-animation>
+          <a-animation attribute="scale" begin="scale-pillar" to="1 3.4 1" dur="3000"></a-animation>
         </a-model>
 
         <a-model id="L-shape"  
@@ -95,7 +133,7 @@
                  src="/assets/monu9-L.dae" 
                  material="src: #Lshape-texture"
                  visible="true">
-          <a-animation attribute="position" begin="L-shape-scale" to="0 39 4" dur="3000"></a-animation>
+          <a-animation attribute="position" begin="L-shape-scale" to="0 37 0" dur="3000"></a-animation>
           <a-animation attribute="rotation" begin="L-shape-rotate1" to="0 0 0" dur="2000"></a-animation>
           <a-animation attribute="rotation" begin="L-shape-rotate2" to="0 90 0" dur="2000"></a-animation>
           <a-animation attribute="rotation" begin="L-shape-rotate3" to="0 180 0" dur="2000"></a-animation>
@@ -156,7 +194,7 @@
                 width="12"
                 height="3"
                 depth="12">
-          <a-animation attribute="position" begin="blue-shift" to="0 90 4" dur="3000"></a-animation>
+          <a-animation attribute="position" begin="blue-shift" to="0 80 4" dur="3000"></a-animation>
         </a-cube>
 
         <a-cube id="FButtonCover" 
@@ -231,12 +269,6 @@
         document.querySelector('#L-shape').emit('L-shape-scale');
         document.querySelector('#stair').emit('stair-visibility');
           });
-      // document.querySelector('#pcover').addEventListener('click', function () {
-      //   document.querySelector('#L-shape').emit('L-shape-scale');
-      //     });
-      // document.querySelector('#pcover').addEventListener('click', function () {
-      //   document.querySelector('#stair').emit('stair-visibility');
-      //     });
 
       document.querySelector('#FButtonCover').addEventListener('click', function () {
         document.querySelector('#Z-shape').emit('Z-shape-scale');
@@ -282,10 +314,23 @@
           console.log("in 4");
           document.querySelector('#L-shape').emit('L-shape-rotate4');
         } 
+      });
 
-
-
-      })
+      document.querySelector('body').addEventListener('keypress', function(event) {
+        var getAttrResult=document.querySelector('#first-hint').getAttribute("position");
+        if(event.keyCode == 104) {
+          if (checkValues(getAttrResult, -50, 2, -30)) {
+            document.querySelector("#first-hint").emit('hide-hint');
+            document.querySelector("#second-hint").emit('hide-hint');
+            document.querySelector("#third-hint").emit('hide-hint');
+          }
+          else {
+          document.querySelector("#first-hint").emit('show-hint');
+          document.querySelector("#second-hint").emit('show-hint');
+          document.querySelector("#third-hint").emit('show-hint'); 
+          }
+        }
+      });
     </script> 
   </body>
 </html>
