@@ -35,7 +35,7 @@
     <a-scene terrain="#terrain [geometry], #scene" stats="false">
 
 
-      <a-entity id="player" position="-1 3 7">
+      <a-entity id="player" position="-1 60 7">
         <a-entity camera 
                   fov="90"
                   look-controls 
@@ -54,7 +54,7 @@
                            volume: 2;">
           </a-entity>
 
-          <a-entity cursor="fuse: true; timeout: 100; maxDistance: 10;" 
+          <a-entity cursor="fuse: true; timeout: 100; maxDistance: 50;" 
                   geometry="primitive:ring; radiusInner:0.02; radiusOuter:0.03" 
                   material="color: #4CC3D9" 
                   position="0 0 -2"></a-entity>
@@ -62,18 +62,15 @@
         <a-animation attribute="position" begin="navigate-to-link" to="0 8 0" dur="5000"></a-animation>          
       </a-entity>
 
-
-
       <a-entity id="scene">
         <a-model rotation="0 -90 0"  
-                 scale="0.1 0.1 0.1" 
+                 scale="1 1 1" 
                  position="0 1.8 4" 
                  src="/assets/monu9-nopillar.dae"
                  material="#my-texture"
                  id="model">
         </a-model>
       </a-entity>
-
 
       <a-cube id="terrain"
               height="1"
@@ -82,39 +79,37 @@
               color="#BCDFFF">
       </a-cube>
 
-
-
-
-
-
       <a-model id="pillar" 
                 rotation="0 -90 0" 
-                scale="0.1 0.1 0.1" 
+                scale="1 1 1" 
                 position="0 1.8 4" 
                 src="/assets/monu9-pillar.dae" 
                 material="src: #pillar-texture" 
                 visible="true">
-        <a-animation attribute="scale" begin="scale-pillar" to="0.1 0.35 0.1" dur="3000"></a-animation>
+        <a-animation attribute="scale" begin="scale-pillar" to="1 3.48 1" dur="3000"></a-animation>
       </a-model>
 
       <a-model id="L-shape"  
                rotation="0 -90 0" 
-               scale="0.1 0.1 0.1" 
+               scale="1 1 1" 
                position="0 1.8 4" 
                src="/assets/monu9-L.dae" 
                material="src: #Lshape-texture"
                visible="true">
-        <a-animation attribute="position" begin="L-shape-scale" to="0 5.55 4" dur="3000"></a-animation>
+        <a-animation attribute="position" begin="L-shape-scale" to="0 39 4" dur="3000"></a-animation>
       </a-model>
 
+
       <a-cube id="pcover" 
-              position="-1.5 4.05 6.3" 
-              transparency = "true"
-              opacity="0"
+              position="-15 25 27" 
+              color="red"
+              transparent="false"
+              opacity="1"
               rotation="0 -90 0" 
-              width="0.5" 
-              height="0.15" 
-              depth="0.5">
+              width="6" 
+              height="3" 
+              depth="6">
+        
       </a-cube>
 
   
@@ -127,7 +122,7 @@
       <a-light color="#ddf" position="3 10 -10" distance="50" intensity="0.4" type="point"></a-light>
 
     </a-scene>
-    <script language="javascript">
+   <script language="javascript">
       document.querySelector('#pcover').addEventListener('click', function () {
         document.querySelector('#pillar').emit('scale-pillar');
           })
