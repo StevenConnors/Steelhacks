@@ -1,11 +1,9 @@
-<!DOCTYPE html>
 <html>
   <head>
-    <meta charset="utf-8">
-    <title>Experiments with the Snowman and A-Frame VR</title>
-    <meta name="description" content="Experiments with A-Frame VR">
-    <script src="https://aframe.io/releases/latest/aframe.min.js"></script>
-    <script src="js/aframe-text-component.min.js"></script>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <title>Steelhacks</title>
+    <script src="https://aframe.io/releases/latest/aframe.js"></script>
     <script src="js/bundle.js"></script>
     <style>
       #audio {
@@ -33,16 +31,15 @@
       <img id="button-texture" src="/assets/monu9-button.png">
     </a-assets>
 
-    <a-scene terrain="#terrain [geometry], #scene" stats="false">
-
-
-      <a-entity id="player" position="-50 30 -40">
-        <a-entity camera 
-                  fov="-0"
-                  look-controls 
-                  wasd-controls
-                  keyboard-controls="acceleration: 200"
-                  jump-ability="enableDoubleJump: true;
+    <a-scene 
+             terrain="#terrain [geometry], #scene"
+             stats="false">
+      <a-entity id="player" position="-15 1.7 -10"
+                camera
+                fov="90"
+                look-controls
+                keyboard-controls="acceleration: 200"
+                jump-ability="enableDoubleJump: true;
                                 soundJump: #sound-jump;
                                 soundLand: #sound-land;">
           <a-entity id="sound-jump"
@@ -55,73 +52,70 @@
                            volume: 2;">
           </a-entity>
 
-          <a-entity cursor="fuse: true; timeout: 100; maxDistance: 50;" 
+          <a-entity cursor="fuse: true; timeout: 100; maxDistance: 100;" 
                   geometry="primitive:ring; radiusInner:0.02; radiusOuter:0.03" 
                   material="color: #4CC3D9" 
                   position="0 0 -2"></a-entity>
-        </a-entity>
-        <a-animation attribute="position" begin="navigate-to-link" to="0 8 0" dur="5000"></a-animation>          
+          </a-entity>
+          <a-animation attribute="position" begin="navigate-to-link" to="0 8 0" dur="5000"></a-animation>          
+
       </a-entity>
 
+
       <a-entity id="scene">
+
+
         <a-model rotation="0 -90 0"  
                  scale="1 1 1" 
-                 position="0 1.8 4" 
+                 position="0 0 0" 
                  src="/assets/monu9-nopillarnoz.dae"
                  material="#my-texture"
                  id="model">
         </a-model>
-      </a-entity>
 
-      <a-cube id="terrain"
-              height="1"
-              width="1000"
-              depth="1000"
-              color="#BCDFFF">
-      </a-cube>
-
-      <a-model id="pillar" 
+        <a-model id="pillar" 
                 rotation="0 -90 0" 
                 scale="1 1 1" 
-                position="0 1.8 4" 
+                position-"0 0 0" 
                 src="/assets/monu9-pillar.dae" 
                 material="src: #pillar-texture" 
                 visible="true">
-        <a-animation attribute="scale" begin="scale-pillar" to="1 3.48 1" dur="3000"></a-animation>
+        <a-animation attribute="scale" begin="scale-pillar" to="1 3.47 1" dur="3000"></a-animation>
       </a-model>
 
       <a-model id="L-shape"  
                rotation="0 -90 0" 
                scale="1 1 1" 
-               position="0 1.8 4" 
+               position-"0 0 0" 
                src="/assets/monu9-L.dae" 
                material="src: #Lshape-texture"
                visible="true">
-        <a-animation attribute="position" begin="L-shape-scale" to="0 39 4" dur="3000"></a-animation>
+        <a-animation attribute="position" begin="L-shape-scale" to="0 37 0" dur="3000"></a-animation>
       </a-model>
 
       <a-model id="Z-shape"
                rotation="0 -90 0"
                scale= "1 1 1"
-               position="0 1.8 4"
+               position-"0 0 0"
                src="/assets/monu9-Z.dae"
                material="src:#Zshape-texture"
                visible="true">
-      <a-animation attribute="scale" begin="Z-shape-scale" to="1 7.5 1" dur="3000"></a-animation>
+      <a-animation attribute="scale" begin="Z-shape-scale" to="1 11.3 1" dur="3000"></a-animation>
+      <a-animation attribute="position" begin="Z-shape-pos" to="0 -12 0" dur="3000"></a-animation>
       </a-model>
 
       <a-model id="button"
                rotation="0 -90 0"
                scale= "1 1 1"
-               position="0 1.8 4"
+               position-"0 0 0"
                src="/assets/monu9-button.dae"
                material="src:#button-texture"
                visible="true">
-      <a-animation attribute="position" begin="button-scale" to="0 21.4 4" dur="3000"></a-animation>
+      <a-animation attribute="position" begin="button-scale" to="0 19 0" dur="3000"></a-animation>
       </a-model>
 
       <a-cube id="pcover" 
-              position="-15 25 27" 
+              position="-15 22 23" 
               transparent="true"
               opacity="0"
               rotation="0 -90 0" 
@@ -131,7 +125,7 @@
         
       </a-cube>
       <a-cube id="FButtonCover" 
-              position="-15 10 -35" 
+              position="-15 7 -39" 
               transparent="true"
               opacity="0"
               rotation="0 -90 0" 
@@ -141,7 +135,18 @@
         
       </a-cube>
 
-  
+
+      </a-entity>
+
+      <a-cube id="terrain"
+              height="1"
+              width="1000"
+              depth="1000"
+              color="#BCDFFF">
+      </a-cube>
+
+      
+
       <!-- Sky -->
       <a-sky id="sky" color="#AADDF0"></a-sky>
 
@@ -162,10 +167,13 @@
         document.querySelector('#Z-shape').emit('Z-shape-scale');
           });
       document.querySelector('#FButtonCover').addEventListener('click', function () {
+        document.querySelector('#Z-shape').emit('Z-shape-pos');
+          });
+      document.querySelector('#FButtonCover').addEventListener('click', function () {
         document.querySelector('#button').emit('button-scale');
           });
     </script> 
-
-
   </body>
 </html>
+
+
