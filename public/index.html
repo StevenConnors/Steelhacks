@@ -37,7 +37,7 @@
              stats="false">
 
       <!-- Player object -->
-      <a-entity id="player" position="-15 1.7 -10"
+      <a-entity id="player" position="-40 1.7 -25" 
                 camera
                 fov="90"
                 look-controls
@@ -152,6 +152,27 @@
                 depth="6">
         </a-cube>
 
+        <a-cube id="treasureBox" 
+                position="38 63 40" 
+                transparent="false"
+                opacity="100"
+                rotation="0 -90 0" 
+                width="1" 
+                height="1" 
+                depth="1"
+                color="brown">
+        </a-cube>
+
+        <a-video id="congratsVid"
+                 src="/assets/Rick_Astley_-_Never_Gonna_Give_You_Up.mp4" 
+                 autoplay="false"
+                 width="5" 
+                 height="4" 
+                 position="38 65 40"
+                 rotation="0 180 0">
+                 <a-animation attribute="autoplay" begin="playVid" to="true"></a-animation>
+                 </a-video>
+
       </a-entity>
       <!-- End Scene -->
 
@@ -201,7 +222,13 @@
         document.querySelector('#bluecover').emit('blue-shift');
           });
 
+      document.querySelector('#treasureBox').addEventListener('click', function () {
+        document.querySelector('#congratsVid').emit('playVid');
+          });
+
       document.querySelector('#bluecover').addEventListener('click', function(){
+
+
 
         var getAttrResult =document.querySelector('#L-shape').getAttribute("rotation"); 
         console.log(getAttrResult);
@@ -222,6 +249,9 @@
           console.log("in 4");
           document.querySelector('#L-shape').emit('L-shape-rotate4');
         } 
+
+
+
       })
     </script> 
   </body>
