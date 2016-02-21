@@ -93,7 +93,9 @@
                 position="0 1.8 4" 
                 src="/assets/monu9-pillar.dae" 
                 material="src: #pillar-texture" 
-                visible="true"></a-model>
+                visible="true">
+        <a-animation attribute="scale" begin="scale-pillar" to="0.1 0.35 0.1" dur="3000"></a-animation>
+      </a-model>
 
       <a-model id="pillar-scaled" 
                 rotation="0 -90 0" 
@@ -111,7 +113,7 @@
                visible="true">
       </a-model>
       <a-model id="L-shape-up"  
-               rotation="0 -90 0" 
+               rotation="0 90 0" 
                scale="0.1 0.1 0.1" 
                position="0 5.5 4" 
                src="/assets/monu9-L.dae" 
@@ -127,7 +129,7 @@
               width="0.7" 
               height="2" 
               depth="1">
-        <a-mouseenter target="#pillar" visible="false"></a-mouseenter>
+        <!-- <a-mouseenter target="#pillar" visible="false"></a-mouseenter>
         <a-mouseenter target="#pillar-scaled" visible="true"></a-mouseenter>
         <a-mouseenter target="#L-shape" visible="false"></a-mouseenter>
         <a-mouseenter target="#L-shape-up" visible="true"></a-mouseenter>
@@ -136,6 +138,7 @@
         <a-mouseleave target="#pillar-scaled" visible="false"></a-mouseleave>
         <a-mouseleave target="#L-shape" visible="true"></a-mouseleave>
         <a-mouseleave target="#L-shape-up" visible="false"></a-mouseleave>
+ -->
       </a-cube>
 
   
@@ -148,7 +151,12 @@
       <a-light color="#ddf" position="3 10 -10" distance="50" intensity="0.4" type="point"></a-light>
 
     </a-scene>
-    
+    <script language="javascript">
+      document.querySelector('#pcover').addEventListener('click', function () {
+        document.querySelector('#pillar').emit('scale-pillar');
+          });
+    </script> 
+
 
   </body>
 </html>
