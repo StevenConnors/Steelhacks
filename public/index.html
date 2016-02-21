@@ -74,7 +74,7 @@
        <a-entity 
             id = "first-hint"
             class = "hint"
-            text="text: Move Move Using WASD and Jump with Space! Press H to toogle hints" 
+            text="text: Move using WASD and Jump with Space! Press H to toggle hints" 
             position="-50 2 -30" 
             material="color: red"
             opacity="1"
@@ -147,8 +147,8 @@
                  src="/assets/monu9-Z.dae"
                  material="src:#Zshape-texture"
                  visible="true">
-          <a-animation attribute="scale" begin="Z-shape-scale" to="1 11.3 1" dur="6000"></a-animation>
-          <a-animation attribute="position" begin="Z-shape-pos" to="0 -12 0" dur="6000"></a-animation>
+          <a-animation attribute="scale" begin="Z-shape-scale" to="1 11.3 1" dur="9000"></a-animation>
+          <a-animation attribute="position" begin="Z-shape-pos" to="0 -12 0" dur="9000"></a-animation>
         </a-model>
 
         <a-model id="button"
@@ -158,7 +158,7 @@
                  src="/assets/monu9-button.dae"
                  material="src:#button-texture"
                  visible="true">
-          <a-animation attribute="position" begin="button-scale" to="0 19 0" dur="6000"></a-animation>
+          <a-animation attribute="position" begin="button-scale" to="0 19 0" dur="9000"></a-animation>
         </a-model>
         <a-model id="stair"
                  rotation="0 -90 0"
@@ -183,7 +183,7 @@
                 width="6" 
                 height="3" 
                 depth="6">   
-            <a-animation attribute="position" begin="pcover-scale" to="-15 21 23" dur="6000"></a-animation> 
+            <a-animation attribute="position" begin="pcover-scale" to="-15 21 23" dur="9000"></a-animation> 
         </a-cube>
 
         <a-cube id="bluecover"
@@ -232,7 +232,7 @@
                  height="4" 
                  position="38 65 40"
                  rotation="0 180 0">
-                 <a-animation attribute="autoplay" begin="playVid" to="true" begin="1000"></a-animation>
+                 <a-animation attribute="autoplay" begin="playVid" to="true"></a-animation>
                  </a-video>
 
       </a-entity>
@@ -263,28 +263,17 @@
       }
 
       document.querySelector('#pcover').addEventListener('click', function() {
-        document.querySelector('#pillar').emit('scale-pillar');
-          });
-      document.querySelector('#pcover').addEventListener('click', function() {
         document.querySelector('#L-shape').emit('L-shape-scale');
         document.querySelector('#stair').emit('stair-visibility');
+        document.querySelector('#pillar').emit('scale-pillar');
+        document.querySelector('#bluecover').emit('blue-shift');
           });
 
       document.querySelector('#FButtonCover').addEventListener('click', function () {
         document.querySelector('#Z-shape').emit('Z-shape-scale');
-          });
-      document.querySelector('#FButtonCover').addEventListener('click', function () {
         document.querySelector('#Z-shape').emit('Z-shape-pos');
-          });
-      document.querySelector('#FButtonCover').addEventListener('click', function () {
         document.querySelector('#button').emit('button-scale');
-          });
-      document.querySelector('#FButtonCover').addEventListener('click', function () {
         document.querySelector('#pcover').emit('pcover-scale');
-          });
-
-      document.querySelector('#pcover').addEventListener('click', function() {
-        document.querySelector('#bluecover').emit('blue-shift');
           });
 
       document.querySelector('#treasureBoxMock').addEventListener('click', function () {
