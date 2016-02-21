@@ -30,6 +30,7 @@
       <img id="Lshape-texture" src="/assets/monu9-L.png">
       <img id="Zshape-texture" src="/assets/monu9-Z.png">
       <img id="button-texture" src="/assets/monu9-button.png">
+      <img id="stair-texture" src="/assets/monu9-stair.png">
     </a-assets>
 
     <!-- Scene to render on the web page -->
@@ -87,7 +88,7 @@
         </a-model>
 
         <a-model id="L-shape"  
-                 rotation="0 -90 0" 
+                 rotation="0 90 0" 
                  scale="1 1 1" 
                  position="0 0 0" 
                  src="/assets/monu9-L.dae" 
@@ -97,7 +98,7 @@
           <a-animation attribute="rotation" begin="L-shape-rotate1" to="0 0 0" dur="2000"></a-animation>
           <a-animation attribute="rotation" begin="L-shape-rotate2" to="0 90 0" dur="2000"></a-animation>
           <a-animation attribute="rotation" begin="L-shape-rotate3" to="0 180 0" dur="2000"></a-animation>
-          <a-animation attribute="rotation" begin="L-shape-rotate4" to="0 -90 0" dur="2000"></a-animation>
+          <a-animation attribute="rotation" begin="L-shape-rotate4" from="0 -180 0" to="0 -90 0" dur="2000"></a-animation>
         </a-model>
 
         <a-model id="Z-shape"
@@ -107,8 +108,8 @@
                  src="/assets/monu9-Z.dae"
                  material="src:#Zshape-texture"
                  visible="true">
-          <a-animation attribute="scale" begin="Z-shape-scale" to="1 11.3 1" dur="3000"></a-animation>
-          <a-animation attribute="position" begin="Z-shape-pos" to="0 -12 0" dur="3000"></a-animation>
+          <a-animation attribute="scale" begin="Z-shape-scale" to="1 11.3 1" dur="6000"></a-animation>
+          <a-animation attribute="position" begin="Z-shape-pos" to="0 -12 0" dur="6000"></a-animation>
         </a-model>
 
         <a-model id="button"
@@ -118,17 +119,32 @@
                  src="/assets/monu9-button.dae"
                  material="src:#button-texture"
                  visible="true">
-          <a-animation attribute="position" begin="button-scale" to="0 19 0" dur="3000"></a-animation>
+          <a-animation attribute="position" begin="button-scale" to="0 19 0" dur="6000"></a-animation>
+        </a-model>
+        <a-model id="stair"
+                 rotation="0 -90 0"
+                 scale= "1 1 1"
+                 position-"0 0 0"
+                 src="/assets/monu9-stair.dae"
+                 material="src:#stair-texture"
+                 visible="false">
+          <a-animation attribute="visible" begin="stair-visibility" to="true" dur="3000"></a-animation>
         </a-model>
 
+        
+
+
+      </a-entity>
+      <!-- End Scene -->
         <a-cube id="pcover" 
-                position="-15 22 23" 
+                position="-15 0 23" 
                 transparent="true"
                 opacity="0"
                 rotation="0 -90 0" 
                 width="6" 
                 height="3" 
-                depth="6">    
+                depth="6">   
+            <a-animation attribute="position" begin="pcover-scale" to="-15 21 23" dur="6000"></a-animation> 
         </a-cube>
 
         <a-cube id="bluecover"
@@ -202,11 +218,17 @@
 
       document.querySelector('#pcover').addEventListener('click', function() {
         document.querySelector('#pillar').emit('scale-pillar');
-          })
+          });
       document.querySelector('#pcover').addEventListener('click', function() {
         document.querySelector('#L-shape').emit('L-shape-scale');
+        document.querySelector('#stair').emit('stair-visibility');
           });
-
+      // document.querySelector('#pcover').addEventListener('click', function () {
+      //   document.querySelector('#L-shape').emit('L-shape-scale');
+      //     });
+      // document.querySelector('#pcover').addEventListener('click', function () {
+      //   document.querySelector('#stair').emit('stair-visibility');
+      //     });
 
       document.querySelector('#FButtonCover').addEventListener('click', function () {
         document.querySelector('#Z-shape').emit('Z-shape-scale');
@@ -216,6 +238,9 @@
           });
       document.querySelector('#FButtonCover').addEventListener('click', function () {
         document.querySelector('#button').emit('button-scale');
+          });
+      document.querySelector('#FButtonCover').addEventListener('click', function () {
+        document.querySelector('#pcover').emit('pcover-scale');
           });
 
       document.querySelector('#pcover').addEventListener('click', function() {
