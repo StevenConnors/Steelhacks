@@ -30,13 +30,27 @@
 
 
       <!-- Player -->
-   <!--    <a-entity id="player" position="15 1.7 10">
+
+<!-- 
+
+      <a-entity id="player" position="15 1.7 10">
         <a-entity camera 
                   fov="90"
                   look-controls 
                   wasd-controls
                   keyboard-controls="acceleration: 200"
-                  jump-ability="enableDoubleJump: true;
+                  jump-ability="enableDoubleJump: true;">
+
+      </a-entity>
+ -->
+
+      <a-entity id="player"
+                camera
+                position="15 1.764 10"
+                fov="90"
+                look-controls
+                keyboard-controls="acceleration: 200"
+                jump-ability="enableDoubleJump: true;
                                 soundJump: #sound-jump;
                                 soundLand: #sound-land;">
           <a-entity id="sound-jump"
@@ -49,46 +63,14 @@
                            volume: 2;">
           </a-entity>
 
-          <a-entity cursor="fuse: true; timeout: 100; maxDistance: 50;" 
+          <a-entity cursor="fuse: true; timeout: 100; maxDistance: 100;" 
                   geometry="primitive:ring; radiusInner:0.02; radiusOuter:0.03" 
                   material="color: #4CC3D9" 
                   position="0 0 -2"></a-entity>
-        </a-entity>
-        <a-animation attribute="position" begin="navigate-to-link" to="0 8 0" dur="5000"></a-animation>          
+          </a-entity>
+          <a-animation attribute="position" begin="navigate-to-link" to="0 8 0" dur="5000"></a-animation>          
+
       </a-entity>
-
- -->      
- <a-entity id="player"
-                camera
-                position="15 1.764 10"
-                fov="90"
-                cursor-visible="true" 
-                cursor-scale="2" 
-                cursor-color="#4CC3D9" 
-                cursor-offset="2" 
-                cursor-maxdistance="10" 
-                cursor-opacity="0.5"
-                look-controls
-                keyboard-controls="acceleration: 200"
-                jump-ability="enableDoubleJump: true;
-                              soundJump: #sound-jump;
-                              soundLand: #sound-land;">
-        <a-entity id="sound-jump"
-                  sound="src: /assets/mariojumpsound.mp3;
-                         on: fire;
-                         volume: 1;">
-        </a-entity>
-        <a-entity id="sound-land"
-                  sound="src: https://sandbox.donmccurdy.com/assets/sound/footfall.mp3;
-                         on: fire;
-                         volume: 2;">
-        </a-entity>
-      </a-entity>
-
-
-
-
-
 
 
 
@@ -161,7 +143,9 @@
       <a-light color="#ddf" position="3 10 -10" distance="50" intensity="0.4" type="point"></a-light>
 
     </a-scene>
-   <script language="javascript">
+<!--     <iframe src="https://embed.spotify.com/?uri=spotify:track:31yUc6doXPpzIw1svv1dBg" width="300" height="80" frameborder="0" allowtransparency="true"></iframe>
+ -->   
+    <script language="javascript">
       document.querySelector('#pcover').addEventListener('click', function () {
         document.querySelector('#pillar').emit('scale-pillar');
           })
@@ -169,7 +153,8 @@
         document.querySelector('#L-shape').emit('L-shape-scale');
           });
     </script> 
-  </body>
+
+</body>
 </html>
 
 
