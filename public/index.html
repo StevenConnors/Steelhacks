@@ -31,6 +31,7 @@
       <img id="Zshape-texture" src="/assets/monu9-Z.png">
       <img id="button-texture" src="/assets/monu9-button.png">
       <img id="stair-texture" src="/assets/monu9-stair.png">
+      <img id="treasure-texture" src="/assets/treasure.png">
     </a-assets>
 
     <!-- Scene to render on the web page -->
@@ -168,25 +169,32 @@
                 depth="6">
         </a-cube>
 
-        <a-cube id="treasureBox" 
-                position="38 63 40" 
-                transparent="false"
-                opacity="100"
+        <a-model id="treasureBox" 
+                material="src:#treasure-texture"
+                src="/assets/treasure.dae"
+                position="38 59.5 40" 
+                rotation="0 90 0" 
+                scale="0.4 0.4 0.4">
+        </a-model>
+
+        <a-cube id="treasureBoxMock" 
+                position="38 59.5 40" 
+                transparent="true"
+                opacity="0"
                 rotation="0 -90 0" 
-                width="1" 
-                height="1" 
-                depth="1"
-                color="brown">
+                width="3" 
+                height="3" 
+                depth="3">
         </a-cube>
 
         <a-video id="congratsVid"
                  src="/assets/Rick_Astley_-_Never_Gonna_Give_You_Up.mp4" 
                  autoplay="false"
-                 width="5" 
+                 width="6" 
                  height="4" 
                  position="38 65 40"
                  rotation="0 180 0">
-                 <a-animation attribute="autoplay" begin="playVid" to="true"></a-animation>
+                 <a-animation attribute="autoplay" begin="playVid" to="true" begin="1000"></a-animation>
                  </a-video>
 
       </a-entity>
@@ -247,7 +255,7 @@
         document.querySelector('#bluecover').emit('blue-shift');
           });
 
-      document.querySelector('#treasureBox').addEventListener('click', function () {
+      document.querySelector('#treasureBoxMock').addEventListener('click', function () {
         document.querySelector('#congratsVid').emit('playVid');
           });
 
