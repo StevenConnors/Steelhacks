@@ -32,13 +32,6 @@
 
     </a-assets>
 
-<<<<<<< HEAD
-    <a-scene>
-      <a-entity id="camera" position="-1 4 7">
-        <a-entity camera gamepad-controls look-controls wasd-controls>
-        <a-entity cursor="fuse: true; timeout: 150; maxDistance: 2;" 
-                  geometry="primitive: ring; radiusInner: 0.02; radiusOuter: 0.03" 
-=======
     <a-scene terrain="#terrain [geometry], #scene" stats="false">
 
 
@@ -52,7 +45,7 @@
                                 soundJump: #sound-jump;
                                 soundLand: #sound-land;">
           <a-entity id="sound-jump"
-                    sound="src: https://sandbox.donmccurdy.com/assets/sound/grunt-male.mp3;
+                    sound="src: /assets/mariojumpsound.mp3;
                            on: fire;">
           </a-entity>
           <a-entity id="sound-land"
@@ -63,7 +56,6 @@
 
           <a-entity cursor="fuse: true; timeout: 100; maxDistance: 10;" 
                   geometry="primitive:ring; radiusInner:0.02; radiusOuter:0.03" 
->>>>>>> origin/master
                   material="color: #4CC3D9" 
                   position="0 0 -2"></a-entity>
         </a-entity>
