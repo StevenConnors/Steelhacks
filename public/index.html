@@ -2,7 +2,7 @@
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta http-equiv="content-type" content="text/html; charset=utf-8">
-    <title>Steelhacks</title>
+    <title>MonumentVR - SteelHacks 2016</title>
     <script src="https://aframe.io/releases/latest/aframe.js"></script>
     <script src="js/bundle.js"></script>
     <script src="js/aframe-text-component.min.js"></script>
@@ -26,33 +26,34 @@
   <body>
     <!-- Assests which aid the coloring of the objects -->
     <a-assets>
-      <img id="my-texture" src="/assets/monu9-nopillarnoz.png">
-      <img id="pillar-texture" src="/assets/monu9-pillar.png">
-      <img id="Lshape-texture" src="/assets/monu9-L.png">
-      <img id="Zshape-texture" src="/assets/monu9-Z.png">
-      <img id="button-texture" src="/assets/monu9-button.png">
-      <img id="stair-texture" src="/assets/monu9-stair.png">
+      <img id="my-texture"       src="/assets/monu9-nopillarnoz.png">
+      <img id="pillar-texture"   src="/assets/monu9-pillar.png">
+      <img id="Lshape-texture"   src="/assets/monu9-L.png">
+      <img id="Zshape-texture"   src="/assets/monu9-Z.png">
+      <img id="button-texture"   src="/assets/monu9-button.png">
+      <img id="stair-texture"    src="/assets/monu9-stair.png">
       <img id="treasure-texture" src="/assets/treasure.png">
     </a-assets>
 
     <!-- Scene to render on the web page -->
-    <a-scene terrain="#terrain [geometry], #scene"
-             stats="false">
+    <a-scene terrain="#terrain [geometry], #scene" stats="false">
 
       <!-- Player object -->
-      <a-entity id="player" position="-40 1.7 -25" 
+      <a-entity id="player" 
+                position="-40 1.7 -25" 
                 camera
                 fov="90"
                 look-controls
                 keyboard-controls="acceleration: 200"
                 jump-ability="enableDoubleJump: true;
-                                soundJump: #sound-jump;
-                                soundLand: #sound-land;">
+                              soundJump: #sound-jump;
+                              soundLand: #sound-land;">
         <!-- Sound objects -->
         <a-entity id="sound-jump"
                   sound="src: /assets/mariojumpsound.mp3;
                          on: fire;">
         </a-entity>
+
         <a-entity id="sound-land"
                   sound="src: https://sandbox.donmccurdy.com/assets/sound/footfall.mp3;
                          on: fire;
@@ -61,9 +62,9 @@
 
         <!-- Cursor object -->
         <a-entity cursor="fuse: true; timeout: 100; maxDistance: 35;" 
-                geometry="primitive:ring; radiusInner:0.02; radiusOuter:0.03" 
-                material="color: #4CC3D9" 
-                position="0 0 -2">
+                  geometry="primitive:ring; radiusInner:0.02; radiusOuter:0.03" 
+                  material="color: #4CC3D9" 
+                  position="0 0 -2">
         </a-entity>
       </a-entity>
       <!-- End Player object -->
@@ -71,43 +72,43 @@
       <!-- Scene entity. Everything that is landable must be included within this object -->
       <a-entity id="scene">
 
-       <a-entity 
-            id = "first-hint"
-            class = "hint"
-            text="text: Move using WASD and Jump with Space! Press H to toggle hints" 
-            position="-50 2 -30" 
-            material="color: red"
-            opacity="1"
-            transparent="false">
-            <a-animation attribute="position" begin="hide-hint" to="100 -100 100"></a-animation> 
-            <a-animation attribute="position" begin="show-hint" to="-50 2 -30"></a-animation> 
-            </a-entity>
+        <!-- Hint Entities -->
+        <a-entity id = "first-hint"
+                 class = "hint"
+                 text="text: Move using WASD and Jump with Space! Press H to toggle hints" 
+                 position="-50 2 -30" 
+                 material="color: red"
+                 opacity="1"
+                 transparent="false">
+          <a-animation attribute="position" begin="hide-hint" to="100 -100 100"></a-animation> 
+          <a-animation attribute="position" begin="show-hint" to="-50 2 -30"></a-animation> 
+        </a-entity>
 
-         <a-entity 
-            id = "second-hint"
-            class = "hint"
-            text="text: Stare at Button and Look Behind You!" 
-            position="-15 8 -45" 
-            material="color: red"
-            opacity="1"
-            transparent="false">
-             <a-animation attribute="position" begin="hide-hint" to="100 -100 100"></a-animation> 
-             <a-animation attribute="position" begin="show-hint" to="-15 8 -45"></a-animation> 
-            </a-entity>
+        <a-entity id = "second-hint"
+                  class = "hint"
+                  text="text: Stare at Button and Look Behind You!" 
+                  position="-15 8 -45"  
+                  material="color: red"
+                  opacity="1"
+                  transparent="false">
+          <a-animation attribute="position" begin="hide-hint" to="100 -100 100"></a-animation> 
+          <a-animation attribute="position" begin="show-hint" to="-15 8 -45"></a-animation> 
+        </a-entity>
          
-          <a-entity 
-            id = "third-hint"
-            class = "hint"
-            text="text: Come Here and Look up at the blue handles!" 
-            position="5 25 -20" 
-            rotation="0 180 0"
-            material="color: red"
-            opacity="1"
-            transparent="false">
-            <a-animation attribute="position" begin="hide-hint" to="100 -100 100"></a-animation> 
-            <a-animation attribute="position" begin="show-hint" to="5 25 -20"></a-animation> 
-          </a-entity>
+        <a-entity id = "third-hint"
+                  class = "hint"
+                  text="text: Come Here and Look up at the blue handles!" 
+                  position="5 25 -20" 
+                  rotation="0 180 0"
+                  material="color: red"
+                  opacity="1"
+                  ransparent="false">
+          <a-animation attribute="position" begin="hide-hint" to="100 -100 100"></a-animation> 
+          <a-animation attribute="position" begin="show-hint" to="5 25 -20"></a-animation> 
+        </a-entity>
+        <!-- End Hints -->
 
+        <!-- Various model entities -->
         <a-model rotation="0 -90 0"  
                  scale="1 1 1" 
                  position="0 0 0" 
@@ -117,12 +118,12 @@
         </a-model>
 
         <a-model id="pillar" 
-                rotation="0 -90 0" 
-                scale="1 1 1" 
-                position-"0 0 0" 
-                src="/assets/monu9-pillar.dae" 
-                material="src: #pillar-texture" 
-                visible="true">
+                 rotation="0 -90 0" 
+                 scale="1 1 1" 
+                 position-"0 0 0" 
+                 src="/assets/monu9-pillar.dae" 
+                 material="src: #pillar-texture" 
+                 visible="true">
           <a-animation attribute="scale" begin="scale-pillar" to="1 3.4 1" dur="3000"></a-animation>
         </a-model>
 
@@ -160,6 +161,7 @@
                  visible="true">
           <a-animation attribute="position" begin="button-scale" to="0 19 0" dur="9000"></a-animation>
         </a-model>
+
         <a-model id="stair"
                  rotation="0 -90 0"
                  scale= "1 1 1"
@@ -170,11 +172,8 @@
           <a-animation attribute="visible" begin="stair-visibility" to="true" dur="3000"></a-animation>
         </a-model>
 
-        
-
-
-      </a-entity>
-      <!-- End Scene -->
+        <!-- The cubes below are overlapped with points where the user needs to gaze to activate an event. -->
+        <!-- Its coded like this becuase a-model does not respond to gaze events, while a transparent a-cube does -->
         <a-cube id="pcover" 
                 position="-15 0 23" 
                 transparent="true"
@@ -225,6 +224,7 @@
                 depth="3">
         </a-cube>
 
+        <!-- Celebration Video -->
         <a-video id="congratsVid"
                  src="/assets/Rick_Astley_-_Never_Gonna_Give_You_Up.mp4" 
                  autoplay="false"
@@ -233,7 +233,7 @@
                  position="38 65 40"
                  rotation="0 180 0">
                  <a-animation attribute="autoplay" begin="playVid" to="true"></a-animation>
-                 </a-video>
+        </a-video>
 
       </a-entity>
       <!-- End Scene -->
