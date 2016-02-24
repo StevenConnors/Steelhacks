@@ -27,6 +27,6 @@ Creating a browser based virtual reality game that can be run on desktop, Oculus
 ## What's next for MonumentVR
 Although we don't think we will pursue this project anymore, we're excited that we now know how to create virtual reality worlds in the browser, and that we can incorporate it into our next projects.
 
-You can play with it at jsa.pary or by clicking the link [here](http://jsa.party).
+You can play with it at jsa.party or by clicking the link [here](http://jsa.party).
 
 Lastly, check out our github pages website: http://steven77723.github.io/Steelhacks/
