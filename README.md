@@ -30,6 +30,7 @@ Although we don't think we will pursue this project anymore, we're excited that 
 Code Sourced from: 
 - https://github.com/donmccurdy/sandbox-aframe
 - https://github.com/ngokevin/aframe-text-component
+
 Both included within public/js/ folder
 
 You can play with it at jsa.party or by clicking the link [here](http://jsa.party).
