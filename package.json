@@ -1,11 +1,11 @@
 {
-    "name": "snowman",
-    "description": "Snowman test project",
+    "name": "Steelhacks",
+    "description": "Steelhacks",
     "version": "0.0.1",
     "main": "server.js",
     "author": {
-        "name": "Olof Astrand",
-        "email": "olof.astrand@gmail.com"
+        "name": "Steven Connors",
+        "email": "stevenconnors@cmu.edu"
     },
     "keywords": [],
     "licenses": {
@@ -17,11 +17,4 @@
       "mongodb":"*",
       "express": "*"
     },
-    "repository": {
-        "type": "git",
-        "url": "https://github.com/Ebiroll/snowman.git"
-    },
-    "bugs": {
-        "url": "http://github.com/Ebiroll/snowman/issues"
-    }
 }
