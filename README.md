@@ -28,7 +28,7 @@ Creating a browser based virtual reality game that can be run on desktop, Oculus
 Although we don't think we will pursue this project anymore, we're excited that we now know how to create virtual reality worlds in the browser, and that we can incorporate it into our next projects.
 
 Code Sourced from: 
-- https://github.com/donmccurdy/sandbox-aframe
+- https://github.com/donmccurdy/aframe-extras
 - https://github.com/ngokevin/aframe-text-component
 
 Both included within public/js/ folder
